@@ -1,675 +1,1132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zetarise Technologies - Coming Soon</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-purple: #4a2c6b;
-            --secondary-purple: #6a4c8b;
-            --accent-green: #4ade80;
-            --dark-purple: #2d1b47;
-            --light-purple: rgba(106, 76, 139, 0.1);
-            --gradient-primary: linear-gradient(135deg, #4a2c6b 0%, #6a4c8b 100%);
-            --gradient-secondary: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-        }
+<?php include 'includes/header.php'; ?>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .bg-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 30%;
-            right: 30%;
-            animation-delay: 4s;
-        }
-
-        .shape:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 1s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .glass-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        /* .logo {
-            width: 800px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
-        } */
-
-        /* .logo::before {
-            content: 'Z';
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            transform: rotate(-15deg);
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            transform: rotate(45deg);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        } */
-
-        .brand-name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            text-align: center;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            text-align: center;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-secondary);
-            border-radius: 15px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .service-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-desc {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .notify-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 3rem 0;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .form-control {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            color: white;
-            padding: 0.75rem 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 0.2rem rgba(74, 222, 128, 0.25);
-            color: white;
-        }
-
-        .btn-primary {
-            background: var(--gradient-secondary);
-            border: none;
-            border-radius: 10px;
-            padding: 0.75rem 2rem;
-            font-weight: 600;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
-            background: var(--gradient-secondary);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: var(--accent-green);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
-            color: white;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-
-        .countdown-item {
-            text-align: center;
-        }
-
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            display: block;
-        }
-
-        .countdown-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-content {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .modal-content .btn-primary {
-            min-width: 120px;
-        }
-
-        .fa-check-circle {
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .brand-name {
-                font-size: 2rem;
-            }
-            .countdown {
-                gap: 1rem;
-            }
-            .countdown-number {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="bg-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-    </div>
-
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-8">
-                <div class="glass-container p-5">
-                    <!-- Logo and Brand -->
-                    <div class="logo-container">
-                       <img src="assets/images/logo1.png" alt="Zetarise Logo" class="logo">
-                    </div>
-
-                    <!-- Hero Section -->
-                    <h2 class="hero-title">Something Amazing is Coming</h2>
-                    <p class="hero-subtitle">We're crafting innovative digital solutions to transform your business and accelerate your growth in the digital landscape.</p>
-
-                    <!-- Countdown Timer -->
-                    <div class="countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days">30</span>
-                            <span class="countdown-label">Days</span>
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="hero-background">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Transform Your Business with 
+                            <span class="text-gradient">Cutting-Edge</span> 
+                            IT Solutions
+                        </h1>
+                        <p class="hero-subtitle">
+                            Partner with ZetaRise for innovative technology solutions that drive growth, 
+                            enhance efficiency, and secure your digital future. 25+ years of excellence.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-primary-custom me-3">
+                                Our Services <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-outline-light">
+                                Get Consultation <i class="fas fa-phone ms-2"></i>
+                            </a>
                         </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours">12</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">45</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds">30</span>
-                            <span class="countdown-label">Seconds</span>
-                        </div>
-                    </div>
-
-                    <!-- Services Grid -->
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="service-title">Web Development</h3>
-                            <p class="service-desc">Modern, responsive websites built with cutting-edge technologies</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <h3 class="service-title">Design & Branding</h3>
-                            <p class="service-desc">Creative designs that capture your brand essence and engage users</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="service-title">Digital Marketing</h3>
-                            <p class="service-desc">Strategic campaigns across Google Ads, Facebook, and social platforms</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h3 class="service-title">IT Solutions</h3>
-                            <p class="service-desc">Comprehensive technology consulting and infrastructure management</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3 class="service-title">Business Assistance</h3>
-                            <p class="service-desc">Strategic guidance to streamline operations and boost productivity</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3 class="service-title">IT Consultations</h3>
-                            <p class="service-desc">Expert advice on technology adoption and digital transformation</p>
-                        </div>
-                    </div>
-
-                    <!-- Notify Form -->
-                    <div class="notify-form">
-                        <h3 class="text-white text-center mb-3">Get Notified When We Launch</h3>
-                        <p class="text-center text-white-50 mb-4">Be the first to experience our revolutionary services. Join our exclusive waiting list!</p>
-                        <form id="notifyForm" class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                            </div>
-                            <div class="col-12">
-                                <textarea name="message" class="form-control" rows="3" placeholder="Tell us about your project needs (optional)"></textarea>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-bell me-2"></i>Notify Me
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Success Modal -->
-                    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content glass-container">
-                                <div class="modal-body text-center p-5">
-                                    <div class="mb-4">
-                                        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                        <div class="hero-stats mt-5">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3 class="stat-number">500+</h3>
+                                        <p class="stat-label">Projects Completed</p>
                                     </div>
-                                    <h3 class="text-white mb-3">Thank You!</h3>
-                                    <p class="text-white-50 mb-4">We've received your information. We'll notify you when we launch!</p>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3 class="stat-number">25+</h3>
+                                        <p class="stat-label">Years Experience</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3 class="stat-number">200+</h3>
+                                        <p class="stat-label">Happy Clients</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                    document.getElementById('notifyForm').addEventListener('submit', async function(e) {
-                        e.preventDefault();
-                        
-                        const button = this.querySelector('button[type="submit"]');
-                        const originalText = button.innerHTML;
-                        
-                        try {
-                            button.disabled = true;
-                            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-                            
-                            const formData = {
-                                name: this.querySelector('[name="name"]').value,
-                                email: this.querySelector('[name="email"]').value,
-                                message: this.querySelector('[name="message"]').value
-                            };
-                            
-                            const response = await fetch('/includes/submit-form.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(formData)
-                            });
-                            
-                            const result = await response.json();
-                            
-                            if (result.error) {
-                                throw new Error(result.error);
-                            }
-                            
-                            // Show success modal
-                            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                            successModal.show();
-                            this.reset();
-                            
-                        } catch (error) {
-                            alert('Error: ' + error.message);
-                        } finally {
-                            button.disabled = false;
-                            button.innerHTML = originalText;
-                        }
-                    });
-                    </script>
-
-                    <!-- Social Links -->
-                    <div class="social-links">
-                        <a href="#" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" title="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="footer">
-                        <p>&copy; 2025 Zetarise Technologies. All rights reserved.</p>
-                        <p>Innovating the future, one solution at a time.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="hero-image">
+                        <img src="assets/images/hero.png" 
+                             alt="IT Solutions" class="img-fluid rounded-3 ">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+<!-- Services Section -->
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Our Expert Services</h2>
+                <p class="section-subtitle">
+                    Comprehensive IT solutions tailored to meet your business needs and drive digital transformation.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Service 1: Web Development -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Web Development</h4>
+                    <p>Custom web applications and responsive websites built with modern technologies and frameworks.</p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>Modern Frameworks</li>
+                        <li>Performance Optimization</li>
+                        <li>SEO Integration</li>
+                    </ul>
+                </div>
+            </div>
             
-            const now = new Date();
-            const timeDiff = launchDate - now;
+            <!-- Service 2: Cloud Solutions -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h4>Cloud Solutions</h4>
+                    <p>Scalable cloud infrastructure and migration services for enhanced flexibility and cost efficiency.</p>
+                    <ul class="service-features">
+                        <li>Cloud Migration</li>
+                        <li>Infrastructure Management</li>
+                        <li>Auto Scaling</li>
+                        <li>24/7 Monitoring</li>
+                    </ul>
+                </div>
+            </div>
             
-            if (timeDiff > 0) {
-                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-                
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            }
+            <!-- Service 3: Mobile Applications -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile Applications</h4>
+                    <p>Native and cross-platform mobile apps that deliver exceptional user experiences.</p>
+                    <ul class="service-features">
+                        <li>iOS & Android</li>
+                        <li>Cross-Platform</li>
+                        <li>UI/UX Design</li>
+                        <li>App Store Optimization</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 4: IT Consulting -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>IT Consulting</h4>
+                    <p>Strategic technology consulting to align IT infrastructure with your business objectives.</p>
+                    <ul class="service-features">
+                        <li>Technology Strategy</li>
+                        <li>Digital Transformation</li>
+                        <li>Process Optimization</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 5: Cybersecurity -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Cybersecurity</h4>
+                    <p>Comprehensive security solutions to protect your business from evolving cyber threats.</p>
+                    <ul class="service-features">
+                        <li>Security Audits</li>
+                        <li>Penetration Testing</li>
+                        <li>Data Protection</li>
+                        <li>Compliance Management</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 6: Data Analytics -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Data Analytics</h4>
+                    <p>Turn your data into actionable insights with advanced analytics and business intelligence.</p>
+                    <ul class="service-features">
+                        <li>Business Intelligence</li>
+                        <li>Predictive Analytics</li>
+                        <li>Data Visualization</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop" 
+                         alt="About ZetaRise" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="about-content">
+                    <h2 class="section-title">About ZetaRise</h2>
+                    <p class="section-subtitle mb-4">
+                        For over 25 years, ZetaRise has been at the forefront of technological innovation, 
+                        helping businesses transform and thrive in the digital age.
+                    </p>
+                    
+                    <div class="about-features mb-4">
+                        <div class="feature-item mb-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-bullseye text-primary"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Our Mission</h5>
+                                <p>To empower businesses with innovative technology solutions that drive growth and efficiency.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item mb-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-eye text-primary"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Our Vision</h5>
+                                <p>To be the leading technology partner that shapes the future of digital transformation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart text-primary"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Our Values</h5>
+                                <p>Innovation, integrity, excellence, and customer-centricity guide everything we do.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary-custom">
+                        Learn More <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Our Portfolio</h2>
+                <p class="section-subtitle">
+                    Explore our successful projects and see how we've helped businesses achieve their digital goals.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Portfolio Item 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
+                             alt="E-Commerce Platform" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>E-Commerce Platform</h5>
+                                <p>Complete online store with payment integration</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>Enterprise E-Commerce</h5>
+                        <span class="portfolio-category">Web Development</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" 
+                             alt="Mobile Banking App" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>Mobile Banking App</h5>
+                                <p>Secure banking application with biometric authentication</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>FinTech Mobile App</h5>
+                        <span class="portfolio-category">Mobile Development</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop" 
+                             alt="Cloud Infrastructure" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>Cloud Migration</h5>
+                                <p>Complete infrastructure migration to AWS</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>Cloud Infrastructure</h5>
+                        <span class="portfolio-category">Cloud Solutions</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 4 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop" 
+                             alt="Data Analytics Dashboard" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>Analytics Dashboard</h5>
+                                <p>Real-time business intelligence platform</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>Business Intelligence</h5>
+                        <span class="portfolio-category">Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 5 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop" 
+                             alt="Cybersecurity Solution" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>Security Framework</h5>
+                                <p>Enterprise-grade cybersecurity implementation</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>Cybersecurity Suite</h5>
+                        <span class="portfolio-category">Security</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 6 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" 
+                             alt="AI Solution" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>AI Assistant</h5>
+                                <p>Machine learning powered customer service bot</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h5>AI Chatbot Platform</h5>
+                        <span class="portfolio-category">Artificial Intelligence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">
+                    Don't just take our word for it. Here's what our valued clients have to say about our services.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card text-center" data-aos="fade-up">
+                                        <div class="testimonial-avatar mb-4">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                                                 alt="Client" class="rounded-circle">
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating mb-3">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </div>
+                                            <blockquote class="testimonial-quote">
+                                                "ZetaRise transformed our entire IT infrastructure. Their cloud migration solution 
+                                                reduced our operational costs by 40% while improving system reliability. 
+                                                Outstanding technical expertise and customer service!"
+                                            </blockquote>
+                                            <cite class="testimonial-author">
+                                                <strong>Michael Chen</strong><br>
+                                                <span class="text-muted">CTO, TechCorp Solutions</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card text-center">
+                                        <div class="testimonial-avatar mb-4">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
+                                                 alt="Client" class="rounded-circle">
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating mb-3">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </div>
+                                            <blockquote class="testimonial-quote">
+                                                "The mobile app ZetaRise developed for us exceeded all expectations. 
+                                                User engagement increased by 300% and our customer satisfaction scores 
+                                                reached an all-time high. Highly recommended!"
+                                            </blockquote>
+                                            <cite class="testimonial-author">
+                                                <strong>Sarah Johnson</strong><br>
+                                                <span class="text-muted">Marketing Director, RetailMax</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card text-center">
+                                        <div class="testimonial-avatar mb-4">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                                                 alt="Client" class="rounded-circle">
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating mb-3">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </div>
+                                            <blockquote class="testimonial-quote">
+                                                "ZetaRise's cybersecurity audit identified critical vulnerabilities we weren't 
+                                                aware of. Their comprehensive security solution gives us peace of mind and 
+                                                ensures our data is fully protected."
+                                            </blockquote>
+                                            <cite class="testimonial-author">
+                                                <strong>David Rodriguez</strong><br>
+                                                <span class="text-muted">CEO, FinanceFirst Bank</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Ready to transform your business? Contact us today for a free consultation and discover how we can help you achieve your digital goals.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <form class="contact-form" id="contactForm">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="company" class="form-label">Company</label>
+                                    <input type="text" class="form-control" id="company" name="company">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="service" class="form-label">Service of Interest</label>
+                                    <select class="form-select" id="service" name="service">
+                                        <option value="">Select a service</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="cloud-solutions">Cloud Solutions</option>
+                                        <option value="mobile-apps">Mobile Applications</option>
+                                        <option value="it-consulting">IT Consulting</option>
+                                        <option value="cybersecurity">Cybersecurity</option>
+                                        <option value="data-analytics">Data Analytics</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message *</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" 
+                                              placeholder="Tell us about your project or requirements..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary-custom btn-lg">
+                                    Send Message <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Info Cards -->
+        <div class="row mt-5 g-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h5>Visit Our Office</h5>
+                    <p>123 Tech Street<br>Silicon Valley, CA 94025<br>United States</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h5>Call Us</h5>
+                    <p>+1 (555) 123-4567<br>+1 (555) 123-4568<br>Mon - Fri, 9AM - 6PM PST</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5>Email Us</h5>
+                    <p>info@zetarise.com<br>sales@zetarise.com<br>support@zetarise.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom Styles for Index Page -->
+<style>
+    /* Hero Section Styles */
+    .hero-section {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    
+    .hero-background {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.8)), 
+                    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop') center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-content {
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .text-gradient {
+        background: linear-gradient(45deg, #60a5fa, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .btn-outline-light {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .btn-outline-light:hover {
+        background: white;
+        color: var(--primary-color);
+        border-color: white;
+        transform: translateY(-2px);
+    }
+    
+    .hero-stats {
+        margin-top: 3rem;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+    }
+    
+    /* Section Styles */
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Service Cards */
+    .service-card {
+        background: white;
+        padding: 2.5rem 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .service-icon i {
+        font-size: 1.8rem;
+        color: white;
+    }
+    
+    .service-card h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .service-card p {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-features {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .service-features li {
+        padding: 0.3rem 0;
+        color: var(--text-light);
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    
+    .service-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+    
+    /* About Section */
+    .about-image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+    }
+    
+    .feature-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .feature-content h5 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+    }
+    
+    .feature-content p {
+        color: var(--text-light);
+        margin: 0;
+    }
+    
+    /* Portfolio Section */
+    .portfolio-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .portfolio-image {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .portfolio-image img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+    
+    .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(37, 99, 235, 0.9);
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+    
+    .portfolio-item:hover .portfolio-image img {
+        transform: scale(1.1);
+    }
+    
+    .portfolio-content {
+        text-align: center;
+        color: white;
+        padding: 2rem;
+    }
+    
+    .portfolio-content h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-content p {
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+    
+    .portfolio-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .portfolio-link:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: scale(1.1);
+    }
+    
+    .portfolio-info {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-info h5 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+    }
+    
+    .portfolio-category {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        background: white;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-avatar img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+    
+    .testimonial-quote {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+    }
+    
+    .testimonial-author strong {
+        color: var(--text-dark);
+        font-size: 1.1rem;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    
+    .carousel-control-prev {
+        left: -25px;
+    }
+    
+    .carousel-control-next {
+        right: -25px;
+    }
+    
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background: var(--secondary-color);
+    }
+    
+    .carousel-indicators {
+        bottom: -50px;
+    }
+    
+    .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: none;
+        margin: 0 5px;
+        opacity: 0.5;
+    }
+    
+    .carousel-indicators button.active {
+        opacity: 1;
+    }
+    
+    /* Contact Section */
+    .contact-form-wrapper {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-label {
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-control, .form-select {
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+    }
+    
+    .contact-info-card {
+        background: white;
+        padding: 2.5rem 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .contact-icon i {
+        font-size: 1.5rem;
+        color: white;
+    }
+    
+    .contact-info-card h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .contact-info-card p {
+        color: var(--text-light);
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
         }
         
-        // Update countdown every second
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
         
-        // Form submission
-        document.getElementById('notifyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-check me-2"></i>Thank You!';
-            button.classList.add('btn-success');
-            button.classList.remove('btn-primary');
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.classList.remove('btn-success');
-                button.classList.add('btn-primary');
-                this.reset();
-            }, 3000);
-        });
+        .section-title {
+            font-size: 2rem;
+        }
         
-        // Add smooth scrolling and interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate service cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
+        .service-card {
+            padding: 2rem 1rem;
+        }
+        
+        .contact-form-wrapper {
+            padding: 2rem;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+    /* Contact Form JavaScript */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.name || !data.email || !data.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        // Simulate form submission
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html></body>    </script>        });            setTimeout(typeWriter, 1000);                        };                }                    setTimeout(typeWriter, 100);                    i++;                    heroTitle.textContent += text.charAt(i);                if (i < text.length) {            const typeWriter = () => {            let i = 0;                        heroTitle.textContent = '';            const text = heroTitle.textContent;            const heroTitle = document.querySelector('.hero-title');            // Add typing effect to hero title                </script>
-</body>
-</html>
-
-
+<?php include 'includes/footer.php'; ?>
