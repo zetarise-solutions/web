@@ -1,15 +1,4 @@
-<?php
-/*$servername = "u829661811_web_zeta";
-$username = "u829661811_admin";
-$password = "Gn=RtVWAk[4";
-$dbname = "zetarise";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-*/
-?>
 
 <?php
 // Replaced mysqli code with a secure PDO helper and common helpers.
