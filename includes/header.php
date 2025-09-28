@@ -114,6 +114,8 @@ try {
             --bg-light: #f8fafc;
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --navbar-height: 80px;
+            --navbar-height-mobile: 70px;
         }
         
         * {
@@ -127,6 +129,7 @@ try {
             line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
+            padding-top: var(--navbar-height);
         }
         
         .navbar {
@@ -136,10 +139,12 @@ try {
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             padding: 0.75rem 0;
+            height: var(--navbar-height);
         }
         
         .navbar.scrolled {
             padding: 0.5rem 0;
+            height: calc(var(--navbar-height) - 10px);
         }
         
         .navbar-brand {
@@ -171,6 +176,11 @@ try {
             color: var(--primary-color) !important;
         }
         
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
         .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
@@ -182,7 +192,8 @@ try {
             transition: all 0.3s ease;
         }
         
-        .navbar-nav .nav-link:hover::after {
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
             width: 100%;
             left: 0;
         }
@@ -207,20 +218,144 @@ try {
         .navbar-toggler {
             border: none;
             outline: none !important;
+            padding: 4px 8px;
         }
         
         .navbar-toggler:focus {
             box-shadow: none;
         }
         
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Mobile specific styles */
         @media (max-width: 991px) {
+            body {
+                padding-top: var(--navbar-height-mobile);
+            }
+            
+            .navbar {
+                height: var(--navbar-height-mobile);
+                padding: 1 rem 0;
+            }
+            
+            .navbar.scrolled {
+                height: calc(var(--navbar-height-mobile) - 5px);
+                padding: 0.4rem 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-logo {
+                height: 35px;
+            }
+            
             .navbar-nav {
                 text-align: center;
                 padding: 20px 0;
+                background: rgba(255, 255, 255, 0.98);
+                margin-top: 10px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
             
             .navbar-nav .nav-link {
                 margin: 10px 0;
+                padding: 10px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            .navbar-nav .nav-link:hover {
+                background: rgba(37, 99, 235, 0.1);
+                transform: translateX(5px);
+            }
+            
+            .navbar-nav .nav-link::after {
+                display: none;
+            }
+            
+            .btn-primary-custom {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+                margin-top: 10px;
+            }
+            
+            .navbar-collapse {
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
+            }
+            
+            .navbar-collapse.show {
+                animation: slideDown 0.3s ease-out;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 576px) {
+            body {
+                padding-top: calc(var(--navbar-height-mobile) - 5px);
+            }
+            
+            .navbar {
+                height: calc(var(--navbar-height-mobile) - 5px);
+                padding: 0.4rem 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            
+            .navbar-logo {
+                height: 30px;
+            }
+            
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+        
+        /* Ensure main content sections have proper spacing */
+        #main-content > section:first-child,
+        .hero-section,
+        .privacy-policy-section,
+        .terms-service-section,
+        .about-hero-section {
+            padding-top: 2rem;
+        }
+        
+        @media (max-width: 991px) {
+            #main-content > section:first-child,
+            .hero-section,
+            .privacy-policy-section,
+            .terms-service-section,
+            .about-hero-section {
+                padding-top: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            #main-content > section:first-child,
+            .hero-section,
+            .privacy-policy-section,
+            .terms-service-section,
+            .about-hero-section {
+                padding-top: 0.5rem;
             }
         }
         
@@ -234,10 +369,30 @@ try {
             padding: 8px 16px;
             z-index: 1100;
             transition: top 0.3s;
+            text-decoration: none;
         }
         
         .skip-link:focus {
             top: 0;
+            color: white;
+        }
+        
+        /* Fix for dropdown menus on mobile */
+        @media (max-width: 991px) {
+            .dropdown-menu {
+                position: static !important;
+                float: none;
+                width: auto;
+                margin-top: 0;
+                background-color: transparent;
+                border: 0;
+                box-shadow: none;
+            }
+        }
+        
+        /* Smooth transitions */
+        .navbar-collapse.collapsing {
+            transition: height 0.35s ease;
         }
     </style>
 </head>
