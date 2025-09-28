@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="footer-brand mb-4">
                     <h3 class="text-white mb-3">
-                        </i>ZetaRise Solutions
+                        ZetaRise Solutions
                     </h3>
                     <p class="text-light-emphasis mb-4">
                         Transforming businesses through innovative IT solutions and cutting-edge technology. 
@@ -39,11 +39,10 @@
             <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <h5 class="text-white mb-4">Quick Links</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><a href="#home" class="text-light-emphasis">Home</a></li>
-                    <li><a href="#services" class="text-light-emphasis">Services</a></li>
-                    <li><a href="#about" class="text-light-emphasis">About Us</a></li>
-                    <!--<li><a href="#portfolio" class="text-light-emphasis">Portfolio</a></li>-->
-                    <li><a href="#contact" class="text-light-emphasis">Contact</a></li>
+                    <li><a href="/" class="text-light-emphasis">Home</a></li>
+                    <li><a href="/services" class="text-light-emphasis">Services</a></li>
+                    <li><a href="/about" class="text-light-emphasis">About Us</a></li>
+                    <li><a href="/contact" class="text-light-emphasis">Contact</a></li>
                 </ul>
             </div>
             
@@ -56,16 +55,16 @@
                         $pdo = getPDO();
                         $stmt = $pdo->query("SELECT title, slug FROM services WHERE is_active = 1 ORDER BY display_order LIMIT 5");
                         while ($service = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo '<li><a href="services.php#' . e($service['slug']) . '" class="text-light-emphasis">' . e($service['title']) . '</a></li>';
+                            echo '<li><a href="/services#' . e($service['slug']) . '" class="text-light-emphasis">' . e($service['title']) . '</a></li>';
                         }
                     } catch (PDOException $e) {
                         // Show default services if database query fails
                     ?>
-                        <li><a href="#" class="text-light-emphasis">Web Development</a></li>
-                        <li><a href="#" class="text-light-emphasis">E Commerce Application</a></li>
-                        <li><a href="#" class="text-light-emphasis">Mobile Apps</a></li>
-                        <li><a href="#" class="text-light-emphasis">IT Consulting</a></li>
-                        <li><a href="#" class="text-light-emphasis">SEO Audit</a></li>
+                        <li><a href="/services" class="text-light-emphasis">Web Development</a></li>
+                        <li><a href="/services" class="text-light-emphasis">E Commerce Application</a></li>
+                        <li><a href="/services" class="text-light-emphasis">Mobile Apps</a></li>
+                        <li><a href="/services" class="text-light-emphasis">IT Consulting</a></li>
+                        <li><a href="/services" class="text-light-emphasis">SEO Audit</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -138,9 +137,9 @@
                 </p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="privacy-policy.php" class="text-light-emphasis me-3">Privacy Policy</a>
-                <a href="terms-of-service.php" class="text-light-emphasis me-3">Terms of Service</a>
-                <a href="sitemap.xml" class="text-light-emphasis">Sitemap</a>
+                <a href="/privacy-policy" class="text-light-emphasis me-3">Privacy Policy</a>
+                <a href="/terms-of-service" class="text-light-emphasis me-3">Terms of Service</a>
+                <a href="/sitemap.xml" class="text-light-emphasis">Sitemap</a>
             </div>
         </div>
     </div>
@@ -426,4 +425,5 @@
 </script>
 
 </body>
+</html>
 </html>

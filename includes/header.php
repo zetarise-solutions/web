@@ -32,14 +32,12 @@ try {
     // Silently continue with defaults if there's a database issue
 }
 
-// Get main navigation links
+// Get main navigation links - Updated to use clean URLs
 $navItems = [
-    ['url' => 'index.php', 'text' => 'Home'],
-    ['url' => 'services.php', 'text' => 'Services'],
-    ['url' => 'about.php', 'text' => 'About'],
-  
-  
-    ['url' => 'contact.php', 'text' => 'Contact']
+    ['url' => '/', 'text' => 'Home'],
+    ['url' => '/services', 'text' => 'Services'],
+    ['url' => '/about', 'text' => 'About'],
+    ['url' => '/contact', 'text' => 'Contact']
 ];
 
 // Track page analytics
@@ -251,13 +249,13 @@ try {
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <!-- Company Logo/Brand -->
-            <a class="navbar-brand" href="index.php" aria-label="ZetaRise Homepage">
+            <a class="navbar-brand" href="/" aria-label="ZetaRise Homepage">
                 <?php if (file_exists('assets/images/logo.svg')): ?>
                     <img src="assets/images/logo.svg" alt="ZetaRise Logo" class="navbar-logo">
                 <?php else: ?>
                     <i class="fas fa-cube me-2"></i>
                 <?php endif; ?>
-               
+               ZetaRise Solutions
             </a>
             
             <!-- Mobile Menu Toggle -->
@@ -271,12 +269,17 @@ try {
                 <ul class="navbar-nav ms-auto align-items-center">
                     <?php foreach($navItems as $item): ?>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === $item['url'] ? 'active' : ''; ?>" 
+                            <?php
+                            $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+                            $isActive = ($currentPath === $item['url']) || 
+                                       ($item['url'] === '/' && ($currentPath === '/' || $currentPath === '/home'));
+                            ?>
+                            <a class="nav-link <?php echo $isActive ? 'active' : ''; ?>" 
                                href="<?php echo e($item['url']); ?>"><?php echo e($item['text']); ?></a>
                         </li>
                     <?php endforeach; ?>
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a href="contact.php" class="btn-primary-custom">Get Quote</a>
+                        <a href="/contact" class="btn-primary-custom">Get Quote</a>
                     </li>
                 </ul>
             </div>

@@ -18,10 +18,10 @@
                             enhance efficiency, and secure your digital future. 5+ years of excellence.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#services" class="btn btn-primary-custom me-3">
+                            <a href="/services" class="btn btn-primary-custom me-3">
                                 Our Services <i class="fas fa-arrow-right ms-2"></i>
                             </a>
-                            <a href="#contact" class="btn btn-outline-light">
+                            <a href="/contact" class="btn btn-outline-light">
                                 Get Consultation <i class="fas fa-phone ms-2"></i>
                             </a>
                         </div>
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     
-                    <a href="#contact" class="btn btn-primary-custom">
+                    <a href="/about" class="btn btn-primary-custom">
                         Learn More <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
