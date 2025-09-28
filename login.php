@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/db.php';
 $pdo = getPDO();
 
 // -------------------- Configuration --------------------
-$MAX_ATTEMPTS = 5;            // allowed attempts
+$MAX_ATTEMPTS = 10;            // allowed attempts
 $ATTEMPT_WINDOW = 15 * 60;   // seconds (15 minutes)
 $LOCKOUT_MINUTES = 15;       // lockout duration after repeated failures
 
