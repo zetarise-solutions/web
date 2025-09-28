@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <div class="stat-item">
-                                        <h3 class="stat-number">500+</h3>
+                                        <h3 class="stat-number">100+</h3>
                                         <p class="stat-label">Projects Delivered</p>
                                     </div>
                                 </div>
@@ -102,54 +102,55 @@
             </div>
         </div>
 
-        <!-- Cloud Solutions Service -->
-        <div class="service-detail-section mb-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-                    <div class="service-detail-content">
-                        <div class="service-detail-icon mb-4">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h2 class="service-detail-title">Cloud Solutions</h2>
-                        <p class="service-detail-description">
-                            Migrate to the cloud with confidence. Our cloud experts help you leverage AWS, Azure, 
-                            and Google Cloud to reduce costs and improve scalability.
-                        </p>
-                        <div class="service-features-list">
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span>Cloud Migration & Strategy</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span>Infrastructure as Code (IaC)</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span>Auto-Scaling & Load Balancing</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span>Disaster Recovery Solutions</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-primary me-3"></i>
-                                <span>24/7 Monitoring & Support</span>
-                            </div>
-                        </div>
-                        <a href="#contact-services" class="btn btn-primary-custom mt-4">
-                            Learn More <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
+       <!-- E-Commerce Application Service -->
+<div class="service-detail-section mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+            <div class="service-detail-content">
+                <div class="service-detail-icon mb-4">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2 class="service-detail-title">E-Commerce Applications</h2>
+                <p class="service-detail-description">
+                    Build a modern, scalable online store tailored to your business. From product management 
+                    to secure payments, we help you create a seamless shopping experience for your customers.
+                </p>
+                <div class="service-features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary me-3"></i>
+                        <span>Custom Online Store Development</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary me-3"></i>
+                        <span>Product Catalog & Inventory Management</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary me-3"></i>
+                        <span>Shopping Cart & Checkout Integration</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary me-3"></i>
+                        <span>Secure Payment Gateway Setup</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary me-3"></i>
+                        <span>Order Tracking & Customer Accounts</span>
                     </div>
                 </div>
-                <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
-                    <div class="service-detail-image">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop" 
-                             alt="Cloud Solutions" class="img-fluid rounded-3 shadow-lg">
-                    </div>
-                </div>
+                <a href="#contact-services" class="btn btn-primary-custom mt-4">
+                    Learn More <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="service-detail-image">
+                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&h=600&fit=crop" 
+                     alt="E-Commerce Application" class="img-fluid rounded-3 shadow-lg">
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <!-- Mobile Applications Service -->
         <div class="service-detail-section mb-5">
@@ -221,7 +222,7 @@
                     <div class="package-header">
                         <h3 class="package-title">Starter</h3>
                         <div class="package-price">
-                            <span class="price-amount">$2,999</span>
+                            <span class="price-amount">₹7,999</span>
                             <span class="price-period">Starting at</span>
                         </div>
                         <p class="package-description">Perfect for small businesses and startups</p>
@@ -234,6 +235,7 @@
                             <li><i class="fas fa-check text-primary me-2"></i>SEO Optimization</li>
                             <li><i class="fas fa-check text-primary me-2"></i>Mobile Friendly</li>
                             <li><i class="fas fa-check text-primary me-2"></i>3 Months Support</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Domain & Hosting</li>
                         </ul>
                     </div>
                     <div class="package-cta">
@@ -249,7 +251,7 @@
                     <div class="package-header">
                         <h3 class="package-title">Professional</h3>
                         <div class="package-price">
-                            <span class="price-amount">$7,999</span>
+                            <span class="price-amount">₹24,999</span>
                             <span class="price-period">Starting at</span>
                         </div>
                         <p class="package-description">Ideal for growing businesses</p>

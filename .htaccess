@@ -1,0 +1,306 @@
+# Enable RewriteEngine
+RewriteEngine On
+
+# Security Headers
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net cdnjs.cloudflare.com unpkg.com fonts.googleapis.com; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdnjs.cloudflare.com fonts.googleapis.com unpkg.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' data: images.unsplash.com; connect-src 'self'; object-src 'none'; base-uri 'self';"
+
+# Block access to sensitive files
+<Files "db.php">
+    Require all denied
+</Files>
+
+<Files "config.php">
+    Require all denied
+</Files>
+
+<Files ".env">
+    Require all denied
+</Files>
+
+<Files "*.sql">
+    Require all denied
+</Files>
+
+# Block access to directories
+<IfModule mod_rewrite.c>
+    RewriteRule ^(sql|config|logs|backups|cache)/ - [F,L]
+</IfModule>
+
+# IP Restriction - Allow only Indian IP ranges
+# Note: This is a comprehensive list of major Indian ISP IP ranges
+# Allow localhost and private networks for development
+<RequireAll>
+    <RequireAny>
+        # Allow localhost and private networks
+        Require ip 127.0.0.1
+        Require ip ::1
+        Require ip 192.168.0.0/16
+        Require ip 10.0.0.0/8
+        Require ip 172.16.0.0/12
+        
+        # Major Indian ISP IP Ranges
+        # Bharti Airtel
+        Require ip 49.32.0.0/11
+        Require ip 49.128.0.0/11
+        Require ip 106.51.0.0/16
+        Require ip 117.192.0.0/10
+        Require ip 157.32.0.0/11
+        Require ip 180.151.0.0/16
+        Require ip 223.182.0.0/15
+        
+        # Reliance Jio
+        Require ip 49.44.0.0/14
+        Require ip 115.96.0.0/11
+        Require ip 150.129.0.0/16
+        Require ip 152.58.0.0/16
+        Require ip 157.40.0.0/13
+        Require ip 223.223.0.0/16
+        
+        # BSNL
+        Require ip 14.96.0.0/11
+        Require ip 49.248.0.0/13
+        Require ip 59.144.0.0/12
+        Require ip 117.192.0.0/10
+        Require ip 125.16.0.0/12
+        Require ip 157.52.0.0/14
+        
+        # Vodafone India
+        Require ip 27.4.0.0/14
+        Require ip 103.199.0.0/16
+        Require ip 117.212.0.0/14
+        Require ip 123.108.0.0/14
+        Require ip 157.44.0.0/14
+        
+        # Idea Cellular
+        Require ip 49.14.0.0/15
+        Require ip 103.231.0.0/16
+        Require ip 117.200.0.0/13
+        Require ip 157.48.0.0/13
+        
+        # Tata Communications
+        Require ip 14.128.0.0/9
+        Require ip 27.96.0.0/11
+        Require ip 49.206.0.0/16
+        Require ip 103.16.0.0/13
+        Require ip 103.47.0.0/16
+        
+        # Railtel
+        Require ip 103.24.0.0/14
+        Require ip 103.251.0.0/16
+        
+        # Hathway
+        Require ip 27.109.0.0/16
+        Require ip 103.252.0.0/14
+        
+        # ACT Fibernet
+        Require ip 117.239.0.0/16
+        Require ip 103.231.0.0/16
+        
+        # Additional Indian ranges
+        Require ip 14.0.0.0/8
+        Require ip 27.0.0.0/8
+        Require ip 36.255.0.0/16
+        Require ip 49.0.0.0/8
+        Require ip 103.0.0.0/8
+        Require ip 106.0.0.0/8
+        Require ip 110.227.0.0/16
+        Require ip 115.96.0.0/11
+        Require ip 117.192.0.0/10
+        Require ip 122.160.0.0/11
+        Require ip 125.16.0.0/12
+        Require ip 150.129.0.0/16
+        Require ip 157.32.0.0/11
+        Require ip 180.149.0.0/16
+        Require ip 202.83.0.0/16
+        Require ip 203.88.0.0/13
+        Require ip 223.182.0.0/15
+    </RequireAny>
+</RequireAll>
+
+# Custom Error Pages
+ErrorDocument 400 /error.php?code=400
+ErrorDocument 401 /error.php?code=401
+ErrorDocument 403 /error.php?code=403
+ErrorDocument 404 /error.php?code=404
+ErrorDocument 405 /error.php?code=405
+ErrorDocument 408 /error.php?code=408
+ErrorDocument 410 /error.php?code=410
+ErrorDocument 413 /error.php?code=413
+ErrorDocument 414 /error.php?code=414
+ErrorDocument 429 /error.php?code=429
+ErrorDocument 500 /error.php?code=500
+ErrorDocument 502 /error.php?code=502
+ErrorDocument 503 /error.php?code=503
+ErrorDocument 504 /error.php?code=504
+
+# URL Rewriting Rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+    
+    # Handle www to non-www redirect (optional)
+    # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # Force HTTPS (uncomment for production)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    
+    # Admin area - Allow direct access to PHP files
+    RewriteCond %{REQUEST_URI} ^/admin/ [NC]
+    RewriteRule ^ - [L]
+    
+    # API area - Allow direct access to PHP files  
+    RewriteCond %{REQUEST_URI} ^/api/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Includes directory - Block direct access
+    RewriteCond %{REQUEST_URI} ^/includes/ [NC]
+    RewriteRule ^ - [F,L]
+    
+    # Handle existing files directly
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    
+    # Handle existing directories directly
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Special handling for index page
+    RewriteRule ^home/?$ index.php [L]
+    
+    # Remove .php extension from URLs
+    # If the request is for a PHP file, redirect to clean URL
+    RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+    RewriteRule ^ /%1 [NC,R=301,L]
+    
+    # Handle clean URLs - add .php extension internally
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L]
+    
+    # Handle service URLs (if you have a services detail page)
+    RewriteRule ^services/([^/]+)/?$ services.php?service=$1 [L,QSA]
+    
+    # Handle blog URLs (if you have a blog)
+    RewriteRule ^blog/([^/]+)/?$ blog.php?slug=$1 [L,QSA]
+    
+    # Sitemap handling
+    RewriteRule ^sitemap\.xml$ sitemap.xml [L]
+    RewriteRule ^robots\.txt$ robots.txt [L]
+    
+    # Block direct access to sensitive files
+    RewriteRule ^(\.htaccess|\.htpasswd|\.env|config\.php|db\.php)$ - [F,L]
+</IfModule>
+
+# Cache Control
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Images
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/ico "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType application/font-woff "access plus 1 month"
+    ExpiresByType application/font-woff2 "access plus 1 month"
+    
+    # HTML and PHP (shorter cache)
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType application/x-httpd-php "access plus 1 hour"
+</IfModule>
+
+# Compress files
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+</IfModule>
+
+# Block bad bots and crawlers
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|scan|java|winhttp|clshttp|loader) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (%0A|%0D|%27|%3C|%3E|%00) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (;|<|>|'|"|\)|\(|%0A|%0D|%22|%27|%28|%3C|%3E|%00).*(libwww-perl|wget|python|nikto|scan|java|winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Prevent access to backup and temporary files
+<FilesMatch "\.(bak|backup|old|orig|original|tmp|temp|~)$">
+    Require all denied
+</FilesMatch>
+
+# Block SQL injection and XSS attempts
+<IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} \.\./\.\./\.\./\.\./\.\./\.\./\.\./\.\./ [OR]
+    RewriteCond %{QUERY_STRING} ^.*(\[|\]|\(|\)|<|>|ê|"|;|\?|\*|=$).* [OR]
+    RewriteCond %{QUERY_STRING} ^.*("|'|<|>|\|).* [OR]
+    RewriteCond %{QUERY_STRING} ^.*(%0A|%0D|%27|%3C|%3E|%00).* [OR]
+    RewriteCond %{QUERY_STRING} ^.*(globals|encode|localhost|loopback).* [NC,OR]
+    RewriteCond %{QUERY_STRING} ^.*(request|select|insert|union|declare|drop).* [NC]
+    RewriteRule ^(.*)$ error.php?code=403 [R=302,L]
+</IfModule>
+
+# Rate limiting (basic)
+<IfModule mod_rewrite.c>
+    RewriteMap requests txt:/tmp/requests.txt
+    RewriteCond %{HTTP_HOST}_%{REMOTE_ADDR} ^([^_]+)_(.+)$
+    RewriteCond ${requests:%1_%2|0} >100
+    RewriteRule .* - [R=429,L]
+</IfModule>
+
+# Additional Security Headers
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# Options
+Options -Indexes
+Options -MultiViews
+Options +FollowSymLinks
+
+# File upload restrictions
+<Files "*.php">
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK) [NC]
+        RewriteRule .* - [F,L]
+    </IfModule>
+</Files>
+
+# Mime type restrictions for uploads
+<IfModule mod_mime.c>
+    # Block potentially dangerous file extensions
+    <FilesMatch "\.(php2|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>

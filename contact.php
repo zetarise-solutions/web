@@ -19,7 +19,7 @@
                             <a href="#contact-form" class="btn btn-primary-custom me-3">
                                 Send Message <i class="fas fa-paper-plane ms-2"></i>
                             </a>
-                            <a href="tel:+15551234567" class="btn btn-outline-light">
+                            <a href="tel:+91 7975427469" class="btn btn-outline-light">
                                 Call Now <i class="fas fa-phone ms-2"></i>
                             </a>
                         </div>
@@ -45,18 +45,12 @@
                         Speak with our experts immediately. We're available during business hours for immediate assistance.
                     </p>
                     <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <strong>Main Office:</strong><br>
-                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
-                        </div>
-                        <div class="contact-detail-item">
-                            <strong>Sales:</strong><br>
-                            <a href="tel:+15551234568">+1 (555) 123-4568</a>
-                        </div>
+
                         <div class="contact-detail-item">
                             <strong>Support:</strong><br>
-                            <a href="tel:+15551234569">+1 (555) 123-4569</a>
+                            <a href="tel:+919795427469">+91 7975427469</a>
                         </div>
+
                     </div>
                     <div class="contact-hours">
                         <small><i class="fas fa-clock me-2"></i>Mon-Fri: 9:00 AM - 6:00 PM PST</small>
@@ -77,7 +71,7 @@
                     <div class="contact-details">
                         <div class="contact-detail-item">
                             <strong>General Inquiries:</strong><br>
-                            <a href="mailto:info@zetarise.com">info@zetarise.com</a>
+                            <a href="mailto:contact@zetarise.com">contact@zetarise.com</a>
                         </div>
                         <div class="contact-detail-item">
                             <strong>Sales Team:</strong><br>
@@ -94,7 +88,7 @@
                 </div>
             </div>
 
-            <!-- Office Visit -->
+            <!-- Office Visit 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="contact-info-card h-100">
                     <div class="contact-info-icon">
@@ -119,7 +113,7 @@
                         Get Directions <i class="fas fa-external-link-alt ms-2"></i>
                     </a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>

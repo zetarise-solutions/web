@@ -37,8 +37,8 @@ $navItems = [
     ['url' => 'index.php', 'text' => 'Home'],
     ['url' => 'services.php', 'text' => 'Services'],
     ['url' => 'about.php', 'text' => 'About'],
-    ['url' => 'portfolio.php', 'text' => 'Portfolio'],
-    ['url' => 'testimonials.php', 'text' => 'Testimonials'],
+  
+  
     ['url' => 'contact.php', 'text' => 'Contact']
 ];
 

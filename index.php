@@ -15,7 +15,7 @@
                         </h1>
                         <p class="hero-subtitle">
                             Partner with ZetaRise for innovative technology solutions that drive growth, 
-                            enhance efficiency, and secure your digital future. 25+ years of excellence.
+                            enhance efficiency, and secure your digital future. 5+ years of excellence.
                         </p>
                         <div class="hero-buttons">
                             <a href="#services" class="btn btn-primary-custom me-3">
@@ -29,19 +29,19 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="stat-item">
-                                        <h3 class="stat-number">500+</h3>
+                                        <h3 class="stat-number">100+</h3>
                                         <p class="stat-label">Projects Completed</p>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="stat-item">
-                                        <h3 class="stat-number">25+</h3>
+                                        <h3 class="stat-number">5+</h3>
                                         <p class="stat-label">Years Experience</p>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="stat-item">
-                                        <h3 class="stat-number">200+</h3>
+                                        <h3 class="stat-number">80+</h3>
                                         <p class="stat-label">Happy Clients</p>
                                     </div>
                                 </div>
@@ -90,21 +90,22 @@
             </div>
             
             <!-- Service 2: Cloud Solutions -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card h-100">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h4>Cloud Solutions</h4>
-                    <p>Scalable cloud infrastructure and migration services for enhanced flexibility and cost efficiency.</p>
-                    <ul class="service-features">
-                        <li>Cloud Migration</li>
-                        <li>Infrastructure Management</li>
-                        <li>Auto Scaling</li>
-                        <li>24/7 Monitoring</li>
-                    </ul>
-                </div>
-            </div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="service-card h-100">
+        <div class="service-icon">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h4>E-Commerce Application</h4>
+        <p>Robust online store solutions with secure payments, product management, and customer-friendly interfaces.</p>
+        <ul class="service-features">
+            <li>Product Catalog Management</li>
+            <li>Secure Payment Gateway</li>
+            <li>Shopping Cart & Checkout</li>
+            <li>Order Tracking</li>
+        </ul>
+    </div>
+</div>
+
             
             <!-- Service 3: Mobile Applications -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -141,38 +142,40 @@
             </div>
             
             <!-- Service 5: Cybersecurity -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card h-100">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>Cybersecurity</h4>
-                    <p>Comprehensive security solutions to protect your business from evolving cyber threats.</p>
-                    <ul class="service-features">
-                        <li>Security Audits</li>
-                        <li>Penetration Testing</li>
-                        <li>Data Protection</li>
-                        <li>Compliance Management</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Service 6: Data Analytics -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card h-100">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h4>Data Analytics</h4>
-                    <p>Turn your data into actionable insights with advanced analytics and business intelligence.</p>
-                    <ul class="service-features">
-                        <li>Business Intelligence</li>
-                        <li>Predictive Analytics</li>
-                        <li>Data Visualization</li>
-                        <li>Machine Learning</li>
-                    </ul>
-                </div>
-            </div>
+           <!-- Service 5: SEO Audit -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+    <div class="service-card h-100">
+        <div class="service-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <h4>SEO Audit</h4>
+        <p>Improve your online visibility with a detailed SEO audit that highlights quick wins and long-term growth strategies.</p>
+        <ul class="service-features">
+            <li>Website Health Check</li>
+            <li>Keyword Research</li>
+            <li>On-Page Optimization</li>
+            <li>Backlink Analysis</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Service 6: SaaS Setup & Support -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+    <div class="service-card h-100">
+        <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+        </div>
+        <h4>SaaS Setup & Support</h4>
+        <p>We help startups integrate and manage essential SaaS tools to streamline operations and reduce overhead.</p>
+        <ul class="service-features">
+            <li>CRM & Email Tools Setup</li>
+            <li>Project Management Platforms</li>
+            <li>Automation Workflows</li>
+            <li>Ongoing Support & Training</li>
+        </ul>
+    </div>
+</div>
+
         </div>
     </div>
 </section>
@@ -236,292 +239,7 @@
     </div>
 </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">Our Portfolio</h2>
-                <p class="section-subtitle">
-                    Explore our successful projects and see how we've helped businesses achieve their digital goals.
-                </p>
-            </div>
-        </div>
-        
-        <div class="row g-4">
-            <!-- Portfolio Item 1 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
-                             alt="E-Commerce Platform" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>E-Commerce Platform</h5>
-                                <p>Complete online store with payment integration</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>Enterprise E-Commerce</h5>
-                        <span class="portfolio-category">Web Development</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Portfolio Item 2 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" 
-                             alt="Mobile Banking App" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>Mobile Banking App</h5>
-                                <p>Secure banking application with biometric authentication</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>FinTech Mobile App</h5>
-                        <span class="portfolio-category">Mobile Development</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Portfolio Item 3 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop" 
-                             alt="Cloud Infrastructure" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>Cloud Migration</h5>
-                                <p>Complete infrastructure migration to AWS</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>Cloud Infrastructure</h5>
-                        <span class="portfolio-category">Cloud Solutions</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Portfolio Item 4 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop" 
-                             alt="Data Analytics Dashboard" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>Analytics Dashboard</h5>
-                                <p>Real-time business intelligence platform</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>Business Intelligence</h5>
-                        <span class="portfolio-category">Data Analytics</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Portfolio Item 5 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop" 
-                             alt="Cybersecurity Solution" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>Security Framework</h5>
-                                <p>Enterprise-grade cybersecurity implementation</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>Cybersecurity Suite</h5>
-                        <span class="portfolio-category">Security</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Portfolio Item 6 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" 
-                             alt="AI Solution" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <h5>AI Assistant</h5>
-                                <p>Machine learning powered customer service bot</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h5>AI Chatbot Platform</h5>
-                        <span class="portfolio-category">Artificial Intelligence</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">
-                    Don't just take our word for it. Here's what our valued clients have to say about our services.
-                </p>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <!-- Testimonial 1 -->
-                        <div class="carousel-item active">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="testimonial-card text-center" data-aos="fade-up">
-                                        <div class="testimonial-avatar mb-4">
-                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
-                                                 alt="Client" class="rounded-circle">
-                                        </div>
-                                        <div class="testimonial-content">
-                                            <div class="testimonial-rating mb-3">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                            </div>
-                                            <blockquote class="testimonial-quote">
-                                                "ZetaRise transformed our entire IT infrastructure. Their cloud migration solution 
-                                                reduced our operational costs by 40% while improving system reliability. 
-                                                Outstanding technical expertise and customer service!"
-                                            </blockquote>
-                                            <cite class="testimonial-author">
-                                                <strong>Michael Chen</strong><br>
-                                                <span class="text-muted">CTO, TechCorp Solutions</span>
-                                            </cite>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 2 -->
-                        <div class="carousel-item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="testimonial-card text-center">
-                                        <div class="testimonial-avatar mb-4">
-                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
-                                                 alt="Client" class="rounded-circle">
-                                        </div>
-                                        <div class="testimonial-content">
-                                            <div class="testimonial-rating mb-3">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                            </div>
-                                            <blockquote class="testimonial-quote">
-                                                "The mobile app ZetaRise developed for us exceeded all expectations. 
-                                                User engagement increased by 300% and our customer satisfaction scores 
-                                                reached an all-time high. Highly recommended!"
-                                            </blockquote>
-                                            <cite class="testimonial-author">
-                                                <strong>Sarah Johnson</strong><br>
-                                                <span class="text-muted">Marketing Director, RetailMax</span>
-                                            </cite>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 3 -->
-                        <div class="carousel-item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="testimonial-card text-center">
-                                        <div class="testimonial-avatar mb-4">
-                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                                                 alt="Client" class="rounded-circle">
-                                        </div>
-                                        <div class="testimonial-content">
-                                            <div class="testimonial-rating mb-3">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                            </div>
-                                            <blockquote class="testimonial-quote">
-                                                "ZetaRise's cybersecurity audit identified critical vulnerabilities we weren't 
-                                                aware of. Their comprehensive security solution gives us peace of mind and 
-                                                ensures our data is fully protected."
-                                            </blockquote>
-                                            <cite class="testimonial-author">
-                                                <strong>David Rodriguez</strong><br>
-                                                <span class="text-muted">CEO, FinanceFirst Bank</span>
-                                            </cite>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Carousel Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                    
-                    <!-- Carousel Indicators -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Contact Section -->
 <section id="contact" class="py-5 bg-light">
@@ -570,11 +288,12 @@
                                     <select class="form-select" id="service" name="service">
                                         <option value="">Select a service</option>
                                         <option value="web-development">Web Development</option>
-                                        <option value="cloud-solutions">Cloud Solutions</option>
+                                        <option value="e-commerce">E-Commerce Application</option>
                                         <option value="mobile-apps">Mobile Applications</option>
                                         <option value="it-consulting">IT Consulting</option>
-                                        <option value="cybersecurity">Cybersecurity</option>
-                                        <option value="data-analytics">Data Analytics</option>
+                                        <option value="seoaudit">SEO Audit</option>
+                                        <option value="saas">SaaS Setup & Support</option>
+                                    
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
@@ -598,8 +317,8 @@
         </div>
         
         <!-- Contact Info Cards -->
-        <div class="row mt-5 g-4">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="row mt-4 g-4">
+            <!--<div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="contact-info-card text-center">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -607,14 +326,14 @@
                     <h5>Visit Our Office</h5>
                     <p>123 Tech Street<br>Silicon Valley, CA 94025<br>United States</p>
                 </div>
-            </div>
+            </div>-->
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="contact-info-card text-center">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h5>Call Us</h5>
-                    <p>+1 (555) 123-4567<br>+1 (555) 123-4568<br>Mon - Fri, 9AM - 6PM PST</p>
+                    <p>+91 9019940788<br>+91 7975427469<br>Mon - Fri, 9AM - 6PM PST</p>
                 </div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
@@ -623,7 +342,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h5>Email Us</h5>
-                    <p>info@zetarise.com<br>sales@zetarise.com<br>support@zetarise.com</p>
+                    <p>contact@zetarise.com<br>sales@zetarise.com<br>support@zetarise.com</p>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="footer-brand mb-4">
                     <h3 class="text-white mb-3">
-                        <i class="fas fa-cube me-2 text-primary"></i>ZetaRise
+                        </i>ZetaRise Solutions
                     </h3>
                     <p class="text-light-emphasis mb-4">
                         Transforming businesses through innovative IT solutions and cutting-edge technology. 
@@ -42,7 +42,7 @@
                     <li><a href="#home" class="text-light-emphasis">Home</a></li>
                     <li><a href="#services" class="text-light-emphasis">Services</a></li>
                     <li><a href="#about" class="text-light-emphasis">About Us</a></li>
-                    <li><a href="#portfolio" class="text-light-emphasis">Portfolio</a></li>
+                    <!--<li><a href="#portfolio" class="text-light-emphasis">Portfolio</a></li>-->
                     <li><a href="#contact" class="text-light-emphasis">Contact</a></li>
                 </ul>
             </div>
@@ -62,10 +62,10 @@
                         // Show default services if database query fails
                     ?>
                         <li><a href="#" class="text-light-emphasis">Web Development</a></li>
-                        <li><a href="#" class="text-light-emphasis">Cloud Solutions</a></li>
+                        <li><a href="#" class="text-light-emphasis">E Commerce Application</a></li>
                         <li><a href="#" class="text-light-emphasis">Mobile Apps</a></li>
                         <li><a href="#" class="text-light-emphasis">IT Consulting</a></li>
-                        <li><a href="#" class="text-light-emphasis">Cybersecurity</a></li>
+                        <li><a href="#" class="text-light-emphasis">SEO Audit</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -114,16 +114,16 @@
                     ?>
                     <div class="contact-item mb-2">
                         <i class="fas fa-envelope me-2 text-primary"></i>
-                        <span class="text-light-emphasis">info@zetarise.com</span>
+                        <span class="text-light-emphasis">contact@zetarise.com</span>
                     </div>
                     <div class="contact-item mb-2">
                         <i class="fas fa-phone me-2 text-primary"></i>
-                        <span class="text-light-emphasis">+1 (555) 123-4567</span>
+                        <span class="text-light-emphasis">+91 7975427469</span>
                     </div>
-                    <div class="contact-item">
+                  <!--  <div class="contact-item">
                         <i class="fas fa-map-marker-alt me-2 text-primary"></i>
                         <span class="text-light-emphasis">123 Tech Street, Silicon Valley, CA 94025</span>
-                    </div>
+                    </div>-->
                     <?php } ?>
                 </div>
             </div>
@@ -134,7 +134,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <p class="text-light-emphasis mb-md-0 mb-3">
-                    © <?php echo date('Y'); ?> ZetaRise Technologies. All rights reserved.
+                    © <?php echo date('Y'); ?> ZetaRise Solutions. All rights reserved.
                 </p>
             </div>
             <div class="col-md-6 text-md-end">
